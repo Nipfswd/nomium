@@ -11,7 +11,12 @@ for file in $FILES; do
     fi
 Done
 
-if (! test -L "Makefile.in"); then
-	echo "Making link to Apple Makefile.in..."
-	ln -s Makefile.in.apple Makefile.in
+FILE=Makefile.in
+if (! test -L "$FILE"); then
+    if (test -f "$FILE"); then
+        echo "Removing spurious $FILE..."
+        rm -f $file
+    fi
+    echo "Making link to Apple $FILE..."
+    ln -s $FILE.apple $FILE
 fi
