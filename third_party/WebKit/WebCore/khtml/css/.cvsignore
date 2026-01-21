@@ -3,6 +3,7 @@ Makefile.in
 *.strip
 cssproperties.c
 cssproperties.h
+cassproperties.gperf
 cssvalues.c
 cssvalues.h
 cssvalues.gperf
