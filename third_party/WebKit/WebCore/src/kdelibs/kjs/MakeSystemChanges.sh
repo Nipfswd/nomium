@@ -15,3 +15,4 @@ if (! test -L "Makefile.in"); then
 	echo "Making link to Apple Makefile.in..."
 	ln -s Makefile.in.apple Makefile.in
 fi
+
