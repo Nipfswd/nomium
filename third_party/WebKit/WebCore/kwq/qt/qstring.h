@@ -21,9 +21,45 @@
  * OF LIABILITY, WHETHER IN CONTRACT, STRICT LIABILITY, OR TORT
  * (INCLUDING NEGLIGENCE OR OTHERWISE) ARISING IN ANY WAY OUT OF THE USE
  * OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE. 
- * /
+ */
 
 #ifndef QSTRING_H_
 #define QSTRING_H_
+
+#include <kwq.h>
+#include <string.h>
+
+class QChar {
+public:
+    QChar(char);
+    QChar(const QChar &);
+    QChar lower() const;
+    char latin1() const;
+    bool isDigit();
+    friend inline int operator==(QChar, QChar);
+    friend inline int operator!=(QChar, QChar);
+};
+
+class QString {
+public:
+    QString();
+    int toInt() const;
+    int toInt(bool *) const;
+    bool isNull() const;
+    const QChar *unicode() const;
+    uint length() const;
+
+    static const QString null;
+
+    // FIXME: bogus constructor hack for "conversion from int to non-scalar
+    // type" error in "Node::toHTML()" function in "dom/dom_node.cpp"
+    QString(int);
+};
+
+class QConstString {
+public:
+    QConstString(QChar *, uint);
+    const QString string() const;
+};
 
 #endif

@@ -21,9 +21,20 @@
  * OF LIABILITY, WHETHER IN CONTRACT, STRICT LIABILITY, OR TORT
  * (INCLUDING NEGLIGENCE OR OTHERWISE) ARISING IN ANY WAY OUT OF THE USE
  * OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE. 
- * /
+ */
 
 #ifndef QOBJECT_H_
 #define QOBJECT_H_
+
+// FIXME: should these macros be in "kwq.h" or other header file?
+#define slots
+#define SLOT(x) x
+#define signals protected
+#define SIGNAL(x) x
+#define emit
+#define Q_OBJECT
+
+class QObject {
+};
 
 #endif
